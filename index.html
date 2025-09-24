@@ -7,39 +7,54 @@
   <link rel="stylesheet" href="https://soniasidorova3.github.io/Tr-ningsredskap/styles.css" />
 </head>
 <body>
-  <header class="site-header">
-    <h1>Träningsredskap</h1>
+  <header class="site-header container">
+    <div class="brand">Träningsredskap</div>
+    <nav class="nav">
+      <a href="#start">Start</a>
+      <a href="#produkter">Produkter</a>
+      <a href="#set">Färgset</a>
+    </nav>
+    <button id="cartBtn" class="cart-btn" aria-label="Öppna kundvagn">
+      Kundvagn <span id="cartCount" class="badge">0</span>
+    </button>
   </header>
 
-  <main>
+  <main id="start" class="container">
     <section class="hero">
-      <img src="https://soniasidorova3.github.io/Tr-ningsredskap/img1.jpeg" alt="Bakgrund">
-      <h2>Träning möter design</h2>
-      <p>Pastell, Höst, Minimalism och Power – välj ditt tema och börja träna hemma.</p>
+      <img class="hero-img" src="https://soniasidorova3.github.io/Tr-ningsredskap/img1.jpeg" alt="Träning hemma">
+      <div class="hero-text">
+        <h1>Träning möter design</h1>
+        <p>Bygg ditt hemmagym med snygga och hållbara produkter. Köp separat eller som koordinerade färgset.</p>
+      </div>
     </section>
 
-    <section class="products">
-      <div class="product-card">
-        <img src="https://soniasidorova3.github.io/Tr-ningsredskap/img2.jpeg" alt="Pastell Basic Kit">
-        <h3>Pastell Basic Kit</h3>
-      </div>
+    <section id="produkter">
+      <h2>Alla produkter</h2>
+      <div id="productGrid" class="grid"></div>
+    </section>
 
-      <div class="product-card">
-        <img src="https://soniasidorova3.github.io/Tr-ningsredskap/img3.jpeg" alt="Hantlar 5 & 8 kg – Pastell">
-        <h3>Hantlar 5 & 8 kg – Pastell</h3>
-      </div>
-
-      <div class="product-card">
-        <img src="https://soniasidorova3.github.io/Tr-ningsredskap/img4.jpeg" alt="Power Band Set">
-        <h3>Power Band Set</h3>
-      </div>
-
-      <div class="product-card">
-        <img src="https://soniasidorova3.github.io/Tr-ningsredskap/img5.jpeg" alt="Yogamatta – Minimalism">
-        <h3>Yogamatta – Minimalism</h3>
-      </div>
+    <section id="set">
+      <h2>Färdiga färgset</h2>
+      <p>Välj ett tema – alla delar matchar. Perfekt startpaket.</p>
+      <div id="bundleGrid" class="grid"></div>
     </section>
   </main>
+
+  <!-- Kundvagns-draglåda -->
+  <aside id="cartDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <h3>Din kundvagn</h3>
+      <button id="closeCart" class="icon-btn" aria-label="Stäng">×</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="row">
+        <span>Delsumma</span><strong id="cartSubtotal">0 kr</strong>
+      </div>
+      <button id="checkoutBtn" class="primary">Gå till beställning</button>
+      <p class="muted">* Betalning sker manuellt via e-postbekräftelse. Fri frakt över 800 kr.</p>
+    </div>
+  </aside>
 
   <script src="https://soniasidorova3.github.io/Tr-ningsredskap/app.js"></script>
 </body>
