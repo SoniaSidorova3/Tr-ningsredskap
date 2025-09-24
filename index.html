@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Träningsredskap – Lokal demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a href="#/" class="logo">Träningsredskap</a>
+    <nav class="top-nav">
+      <a href="#/" class="nav-link" aria-current="page">Start</a>
+      <a href="#/produkter" class="nav-link">Produkter</a>
+    </nav>
+    <div class="header-actions">
+      <label class="search">
+        <input id="searchInput" type="search" placeholder="Sök produkter…" aria-label="Sök produkter" />
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4a6 6 0 104.472 10.03l4.249 4.248 1.414-1.414-4.248-4.249A6 6 0 0010 4zm-4 6a4 4 0 118 0 4 4 0 01-8 0z"/></svg>
+      </label>
+      <button id="cartButton" class="cart-button" aria-label="Öppna kundvagn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h-2l-1 2H1v2h2l3.6 7.59-1.35 2.45A1.99 1.99 0 007 20h12v-2H7.42a.25.25 0 01-.22-.37L8.1 15h7.45a2 2 0 001.79-1.11l3.58-7.16A1 1 0 0020 5H6.21l.94-1.86L7 2zM7 22a2 2 0 100-4 2 2 0 000 4zm10 0a2 2 0 100-4 2 2 0 000 4z"/></svg>
+        <span class="badge" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="app" class="container" tabindex="-1"></main>
+
+  <aside id="cartDrawer" class="cart-drawer" aria-hidden="true" aria-labelledby="cartTitle" role="dialog">
+    <div class="cart-drawer__header">
+      <h2 id="cartTitle">Din kundvagn</h2>
+      <button class="icon-button" id="closeCart" aria-label="Stäng kundvagn">×</button>
+    </div>
+    <div id="cartItems" class="cart-drawer__items" role="list"></div>
+    <div class="cart-drawer__footer">
+      <div class="cart-row"><span>Delsumma</span><strong id="cartSubtotal">0 kr</strong></div>
+      <button id="checkoutBtn" class="btn-primary">Gå till kassan (demo)</button>
+      <p class="small">Demoversion – ingen betalning sker.</p>
+    </div>
+  </aside>
+
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <template id="productCardTpl">
+    <article class="card" role="listitem">
+      <a class="card__imageLink" href="#">
+        <img class="card__image" alt="Produktbild" loading="lazy" />
+      </a>
+      <div class="card__body">
+        <h3 class="card__title"></h3>
+        <p class="card__price"></p>
+        <button class="btn-secondary addToCartBtn">Lägg i kundvagn</button>
+      </div>
+    </article>
+  </template>
+
+  <template id="cartItemTpl">
+    <div class="cart-item" role="listitem">
+      <img class="cart-item__img" alt="Produktbild" />
+      <div class="cart-item__info">
+        <div class="cart-item__title"></div>
+        <div class="cart-item__price"></div>
+        <div class="qty">
+          <button class="icon-button dec" aria-label="Minska antal">−</button>
+          <input class="qty-input" type="number" min="1" value="1" aria-label="Antal" />
+          <button class="icon-button inc" aria-label="Öka antal">+</button>
+        </div>
+      </div>
+      <button class="icon-button remove" aria-label="Ta bort">×</button>
+    </div>
+  </template>
+
+  <script src="./app.js"></script>
+</body>
+</html>
